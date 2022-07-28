@@ -26,7 +26,7 @@ def download_content(url, cur_path, ignore_course_menu=True, verbose=True):
 
 	soup = BeautifulSoup(response.content, 'html.parser')
 
-	with open(os.path.join(cur_path, 'page.html'), "w") as f:
+	with open(os.path.join(cur_path, 'page.html'), "w", errors='ignore') as f:
 		f.write(str(soup))
 
 	if ignore_course_menu:
@@ -43,7 +43,7 @@ def download_content(url, cur_path, ignore_course_menu=True, verbose=True):
 			continue
 		
 		name = " ".join(link.get_text().split())
-		name = re.sub('/', '', name)
+		name = re.sub(r"[/\\:*?\”<>|]", '', name)
 		
 		if href.startswith('/webapps/blackboard/content/listContent'):
 			if href.endswith('logout'):
