@@ -43,7 +43,7 @@ def download_content(url, cur_path, ignore_course_menu=True, verbose=True):
 			continue
 		
 		name = " ".join(link.get_text().split())
-		name = re.sub(r"[/\\:*?\”<>|]", '', name)
+		name = re.sub(r"[/\\:*?\”\"<>|]", '', name)
 		
 		if href.startswith('/webapps/blackboard/content/listContent'):
 			if href.endswith('logout'):
