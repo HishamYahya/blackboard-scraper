@@ -7,6 +7,10 @@ Script for locally downloading all files from your personal Blackboard page
 ```
 pip install beautifulsoup4
 ```
+- Requests
+```
+pip install requests
+```
 
 ## Steps
 1. Login to Blackboard
